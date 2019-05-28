@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forside Realistic tattoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="tatoveringer.css">
+</head>
+
+<body>
+    <header>
+
+        <div class="logo"><a href="index.html"><img src="logo_hvid.png" alt="logo"></a></div>
+
+        <div class="box">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="mobilemenu">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr>
+                <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
+                <hr>
+                <a href="fanart.html">FAN-ART</a>
+                <hr>
+                <a href="portraetter.html">PORTRÆTTER</a>
+                <hr>
+                <a href="tatoveringer.html">PRAKTISK</a>
+                <hr>
+                <a id="hoved" href="booking.html">BOOKING</a>
+                <hr>
+                <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
+                <hr>
+                <a id="hoved" href="om.html">OM</a>
+                <hr>
+                <a id="hoved" href="kontakt.html">KONTAKT</a>
+                <hr>
+            </div>
+
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+        </div>
+
+        <div id="desktop">
+            <ul>
+                <li><a href="kontakt.html">KONTAKT</a></li>
+                <li><a href="om.html">OM</a></li>
+                <li><a href="faq.html">F.A.Q</a></li>
+                <li><a href="wish.html">WISH LIST TATTOO</a></li>
+                <li><a href="booking.html">BOOKING</a></li>
+                <li class="dropdown">
+                    <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
+                    <div class="dropdown-content">
+                        <a href="fanart.html">FAN-ART</a>
+                        <a href="portraetter.html">PORTRÆTTER</a>
+                        <a href="tatoveringer.html">PRAKTISK</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="splash">
+        <h1>TATOVERINGER</h1>
+    </div>
+
+
+    <buttons>
+        <button class="button1"><a href="fanart.html">FAN-ART</a></button>
+        <button class="button2"><a href="portraetter.html">PORTÆTTER</a></button>
+        <button class="button3"><a href="tatoveringer.html">PRAKTISK</a></button>
+    </buttons>
+
+
+
+    <main class="tatoveringer">
+        <section>
+            <h2 class="t_h2"></h2>
+            <div class="t_text"></div>
+        </section>
+    </main>
+
+    <div class="praktisk"></div>
+    <template>
+        <section class="side">
+            <h2 class="p_h2"></h2>
+            <div class="p_text"></div>
+        </section>
+    </template>
+
+    <!--
+     <div class="tatoveringer">
+        <h1>Tatoveringer</h1>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dolor diam. Aenean eleifend lacus eget arcu bibendum, et elementum sapien eleifend. Phasellus et arcu et lorem vehicula pulvinar vel sed nunc. Pellentesque sed mi sed dolor molestie hendrerit. Proin quis scelerisque libero. Integer quam sapien, tincidunt id malesuada a, rutrum non odio.
+        </p>
+    </div>
+
+    <div class="praktisk">
+        <h1>Praktisk</h1>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dolor diam. Aenean eleifend lacus eget arcu bibendum, et elementum sapien eleifend. Phasellus et arcu et lorem vehicula pulvinar vel sed nunc. Pellentesque sed mi sed dolor molestie hendrerit. Proin quis scelerisque libero. Integer quam sapien, tincidunt id malesuada a, rutrum non odio.
+        </p>
+    </div>-->
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+
+
+
+
+        //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
+
+        let tatoveringer;
+        let praktisk;
+
+        //Når dommet er loadet, kaldt funktionen start
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        function start() {
+
+            async function getJson() {
+                console.log("tatoveringer");
+
+                let url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/9";
+
+                //henter data fil
+                let jsonData = await fetch(url);
+
+
+                //den hentede json filen skal tolkes som json
+                tatoveringer = await jsonData.json();
+
+                //Kald funktionen som viser data i DOM
+                visTatoveringer();
+            }; //hent JSON fil i asynkron funktion
+
+
+            function visTatoveringer() {
+                document.querySelector(".t_h2").textContent = tatoveringer.title.rendered;
+                document.querySelector(".t_text").innerHTML = tatoveringer.content.rendered;
+            }
+
+            getJson();
+
+            async function getJson2() {
+                console.log("praktisk");
+
+                let url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/95";
+
+                //henter data fil
+                let jsonData = await fetch(url);
+
+
+                //den hentede json filen skal tolkes som json
+                praktisk = await jsonData.json();
+
+                //Kald funktionen som viser data i DOM
+                visPraktisk();
+            };
+
+
+
+            function visPraktisk() {
+                let dest = document.querySelector(".praktisk");
+                let temp = document.querySelector("template");
+
+                // Det tomme array bliver fyldt med indhold
+                praktisk.forEach(side => {
+                    //Kloning af template-taggets indhold
+                    let klon = temp.cloneNode(true).content;
+
+                    klon.querySelector(".p_h2").textContent = side.title.rendered;
+
+                    klon.querySelector(".p_text").innerHTML = side.content.rendered;
+
+                    //Tilføjer klonen til variablen dest (sectionen)
+                    dest.appendChild(klon);
+
+                })
+            }
+            getJson2();
+        }
+    </script>
+</body>
+
+</html>

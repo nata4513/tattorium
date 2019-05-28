@@ -1,0 +1,360 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+
+
+/*****************ARROWS******************/
+.logo {
+    width: 30%;
+    position: absolute;
+    z-index: 3;
+}
+
+.box {
+    position: absolute;
+    z-index: 1;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.box span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-bottom: 1.5px solid white;
+    border-right: 1.5px solid white;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+    z-index: 1;
+
+}
+
+.box span:nth-child(1) {
+    animation-delay: -0.4s;
+}
+
+.box span:nth-child(2) {
+    animation-delay: -0.6s;
+}
+
+
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+
+/*******************MENU MOBILE******************/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 65px;
+    font-family: roboto;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    font-size: 3.5vw;
+    line-height: 1.6;
+}
+
+.sidenav a:hover {
+    color: #BB0000;
+}
+
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+span {
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    padding-right: 1vw;
+    padding-top: 1vw;
+    color: white;
+}
+
+hr {
+    opacity: 0.1;
+}
+
+/*******************MENU DESKTOP******************/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 1.5vw;
+    font-family: roboto;
+    opacity: 1;
+}
+
+#desktop {
+    display: none;
+    background-color: white;
+    opacity: 0.9;
+}
+
+
+li {
+    float: right;
+}
+
+li a,
+.dropbtn {
+    display: inline-block;
+    color: black;
+    padding: 16px 16px;
+    text-decoration: none;
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+    color: #BB0000;
+
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+    color: #BB0000;
+}
+
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: white;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/*****************SECTION********************/
+
+
+.splash {
+    background-image: url("billeder/booking_mobile.png");
+    height: 700px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.splash h1 {
+    font-family: anton;
+    color: white;
+    font-size: 12vw;
+    margin: 0;
+    position: relative;
+    left: 30vw;
+    top: 20vw;
+}
+
+
+.booking {
+    height: 1400px;
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.5;
+    padding: 50px;
+    background-color: #545554;
+    color: white;
+}
+
+button {
+    background-color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0.7;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+button a {
+    text-decoration: none;
+    color: black;
+    font-family: "Roboto";
+    padding: 15px 30px;
+}
+
+.button1 {
+    position: relative;
+    top: 3vw;
+    margin: auto;
+}
+
+button a:hover {
+    color: #BB0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*******************MEDIAQUARIES********************/
+
+@media only screen and (min-width: 992px) {
+    .mobilemenu {
+        display: none;
+    }
+
+    span {
+        display: none;
+    }
+
+    #desktop {
+        display: block;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        float: right;
+        z-index: 1;
+    }
+
+
+    .box {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        display: block;
+    }
+
+    .box span {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        transform: rotate(45deg);
+        margin: -10px;
+        animation: animate 2s infinite;
+    }
+
+    .splash {
+        background-image: url("billeder/booking_dektop.png");
+        height: 700px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .booking {
+        height: 1000px;
+        font-size: 20px;
+        text-align: left;
+        line-height: 1.5;
+        padding: 50px;
+        background-color: #545554;
+        color: white;
+    }
+
+    .button1 {
+        position: relative;
+        top: 15vw;
+    }
+
+
+    .splash h1 {
+        font-size: 6vw;
+        margin: 0;
+        position: relative;
+        left: 40vw;
+        top: 10vw;
+    }
+
+    .logo {
+        width: 10%;
+        position: absolute;
+        top: -0.7vw;
+    }
+}

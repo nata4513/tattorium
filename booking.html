@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forside Realistic tattoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+    <header>
+
+        <div class="logo"><a href="index.html"><img src="logo_hvid.png" alt="logo"></a></div>
+
+        <div class="box">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="mobilemenu">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr>
+                <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
+                <hr>
+                <a href="fanart.html">FAN-ART</a>
+                <hr>
+                <a href="portraetter.html">PORTRÆTTER</a>
+                <hr>
+                <a href="tatoveringer.html">PRAKTISK</a>
+                <hr>
+                <a id="hoved" href="booking.html">BOOKING</a>
+                <hr>
+                <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
+                <hr>
+                <a id="hoved" href="om.html">OM</a>
+                <hr>
+                <a id="hoved" href="kontakt.html">KONTAKT</a>
+                <hr>
+            </div>
+
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+        </div>
+
+        <div id="desktop">
+            <ul>
+                <li><a href="kontakt.html">KONTAKT</a></li>
+                <li><a href="om.html">OM</a></li>
+                <li><a href="faq.html">F.A.Q</a></li>
+                <li><a href="wish.html">WISH LIST TATTOO</a></li>
+                <li><a href="booking.html">BOOKING</a></li>
+                <li class="dropdown">
+                    <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
+                    <div class="dropdown-content">
+                        <a href="fanart.html">FAN-ART</a>
+                        <a href="portraetter.html">PORTRÆTTER</a>
+                        <a href="tatoveringer.html">PRAKTISK</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+
+    <div class="splash">
+        <h1>BOOKING</h1>
+    </div>
+
+    <main class="side">
+        <section class="booking">
+            <h2 class="overskrift"></h2>
+            <div class="text"></div>
+            <button class="button1"><a href="kontakt.html">KONTAKT</a></button>
+        </section>
+    </main>
+
+
+
+
+
+    <script>
+        let side = {}; // tomt objekt
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+            const url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/15?fbclid=IwAR3H5D-3p6fmW3N_SFTSivQBcTqryAyD3YFWUEu3-uPxjxwipwkU2ZVx3Ug";
+
+            const myJson = await fetch(url);
+
+            side = await myJson.json();
+
+            console.log(side);
+
+            visSide();
+        }
+
+
+        function visSide() {
+            //let dest = document.querySelector(".side");
+            //let temp = document.querySelector("template");
+
+            /*side.forEach(om => {
+                //let klon = temp.cloneNode(true).content;
+
+
+                //dest.appendChild(klon);
+            })*/
+            document.querySelector(".side .overskrift").innerHTML = side.title.rendered;
+            document.querySelector(".side .text").innerHTML = side.content.rendered;
+        }
+
+
+
+
+
+
+
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

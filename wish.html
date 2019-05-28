@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forside Realistic tattoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="wish.css">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="">
+
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forside Realistic tattoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="wish.css">
+</head>
+
+<body>
+    <header>
+
+        <div class="logo"><a href="index.html"><img src="logo_hvid.png" alt="logo"></a></div>
+
+        <div class="box">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="mobilemenu">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr>
+                <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
+                <hr>
+                <a href="fanart.html">FAN-ART</a>
+                <hr>
+                <a href="portraetter.html">PORTRÆTTER</a>
+                <hr>
+                <a href="tatoveringer.html">PRAKTISK</a>
+                <hr>
+                <a id="hoved" href="booking.html">BOOKING</a>
+                <hr>
+                <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
+                <hr>
+                <a id="hoved" href="om.html">OM</a>
+                <hr>
+                <a id="hoved" href="kontakt.html">KONTAKT</a>
+                <hr>
+            </div>
+
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+        </div>
+
+        <div id="desktop">
+            <ul>
+                <li><a href="kontakt.html">KONTAKT</a></li>
+                <li><a href="om.html">OM</a></li>
+                <li><a href="faq.html">F.A.Q</a></li>
+                <li><a href="wish.html">WISH LIST TATTOO</a></li>
+                <li><a href="booking.html">BOOKING</a></li>
+                <li class="dropdown">
+                    <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
+                    <div class="dropdown-content">
+                        <a href="fanart.html">FAN-ART</a>
+                        <a href="portraetter.html">PORTRÆTTER</a>
+                        <a href="tatoveringer.html">PRAKTISK</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section>
+
+        <div class="splash">
+            <h1>WISH LIST TATTOO</h1>
+        </div>
+
+        <div class="wish">
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dolor diam. Aenean eleifend lacus eget arcu bibendum, et elementum sapien eleifend. Phasellus et arcu et lorem vehicula pulvinar vel sed nunc. Pellentesque sed mi sed dolor molestie hendrerit. Proin quis scelerisque libero. Integer quam sapien, tincidunt id malesuada a, rutrum non odio.
+            </p>
+        </div>
+
+    </section>
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+    <div id="liste"></div>
+
+    <script>
+        let alleRetter = [];
+
+
+        document.addEventListener("DOMContentLoaded",
+            start);
+
+        function start() {
+            let dest = document.querySelector("#liste");
+            async function getJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1bg3EjadOtBuwvxHCd4epqiz_b6mi4bHti9HLxHmRp7k/");
+                alleRetter = await jsonData.json();
+                alleRetter.sort((a, b) => {
+                    return (a.pris - b.pris);
+                });
+
+                visRetter();
+            }
+
+            function visRetter() {
+                dest.innerHTML = "";
+                alleRetter.forEach(ret => {
+                    if (filter == "alle" || filter == ret.kategori) {
+                        let template =
+                            `<article class="ret">
+                                <img src="imgs/${ret.billede}" alt="${ret.navn}">
+                                <h2>${ret.navn}</h2>
+                                <h2>${ret.pris} kr. </h2>
+                            </article>
+                        `;
+
+
+                        // Åben pop-up
+
+                        dest.insertAdjacentHTML("beforeend", template);
+                        dest.lastElementChild.addEventListener("click", visSingle);
+
+                        // Indholdet i pop-up vinduet
+
+                        function visSingle() {
+                            document.querySelector("#indhold").innerHTML =
+
+                                `<article class="ret">
+                                    <img src="imgs/${ret.billede}" alt="${ret.navn}">
+                                    <h2>${ret.navn}</h2>
+                                    <h2>${ret.pris} kr. </h2>
+                                </article>`;
+
+                            document.querySelector("#popup").style.display = "block";
+                            document.querySelector("#popup #luk").addEventListener("click", close);
+                        }
+
+                        function close() {
+                            document.querySelector("#popup").style.display = "none";
+                        }
+
+
+                    }
+                })
+            }
+
+            getJson();
+
+            document.querySelectorAll(".filter").forEach(but => {
+                but.addEventListener("click", filtrering);
+            })
+
+            function filtrering() {
+                document.querySelectorAll(".filter").forEach(but => {
+                    but.classList.remove("valgt");
+                });
+                this.classList.add("valgt");
+                document.querySelector("h1").textContent = this.textContent;
+                filter = this.getAttribute("data-hold");
+                visRetter();
+            }
+
+        }
+    </script>
+
+
+</body>
+
+    </html>
