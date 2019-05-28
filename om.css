@@ -235,9 +235,9 @@ li.dropdown {
 }
 
 .om {
-    height: 500px;
+    height: 1200px;
     font-size: 20px;
-    text-align: center;
+    text-align: left;
     line-height: 1.5;
     padding: 50px;
     background-color: black;
@@ -248,7 +248,6 @@ li.dropdown {
 }
 
 .overskrift {
-    height: 100px;
     color: white;
 }
 
@@ -312,7 +311,7 @@ li.dropdown {
 
 
     .om {
-        height: 900px;
+        height: 570px;
         font-size: 20px;
         text-align: left;
         line-height: 1.5;

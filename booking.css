@@ -16,6 +16,15 @@ img {
     width: 100%;
 }
 
+h1,
+    {
+    font-family: anton;
+    font-size: 10vw;
+}
+
+p {
+    font-family: roboto;
+}
 
 
 /*****************ARROWS******************/

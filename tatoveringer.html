@@ -88,14 +88,12 @@
         </section>
     </main>
 
-    <div class="praktisk"></div>
-    <template>
+    <div class="praktisk">
         <section class="side">
             <h2 class="p_h2"></h2>
             <div class="p_text"></div>
         </section>
-    </template>
-
+    </div>
     <!--
      <div class="tatoveringer">
         <h1>Tatoveringer</h1>
@@ -137,23 +135,18 @@
 
             async function getJson() {
                 console.log("tatoveringer");
-
                 let url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/9";
-
                 //henter data fil
                 let jsonData = await fetch(url);
-
-
                 //den hentede json filen skal tolkes som json
                 tatoveringer = await jsonData.json();
-
                 //Kald funktionen som viser data i DOM
                 visTatoveringer();
             }; //hent JSON fil i asynkron funktion
 
 
             function visTatoveringer() {
-                document.querySelector(".t_h2").textContent = tatoveringer.title.rendered;
+                document.querySelector(".t_h2").innerHTML = tatoveringer.title.rendered;
                 document.querySelector(".t_text").innerHTML = tatoveringer.content.rendered;
             }
 
@@ -161,40 +154,21 @@
 
             async function getJson2() {
                 console.log("praktisk");
-
                 let url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/95";
-
                 //henter data fil
                 let jsonData = await fetch(url);
-
-
                 //den hentede json filen skal tolkes som json
                 praktisk = await jsonData.json();
-
                 //Kald funktionen som viser data i DOM
                 visPraktisk();
             };
 
 
-
             function visPraktisk() {
-                let dest = document.querySelector(".praktisk");
-                let temp = document.querySelector("template");
-
-                // Det tomme array bliver fyldt med indhold
-                praktisk.forEach(side => {
-                    //Kloning af template-taggets indhold
-                    let klon = temp.cloneNode(true).content;
-
-                    klon.querySelector(".p_h2").textContent = side.title.rendered;
-
-                    klon.querySelector(".p_text").innerHTML = side.content.rendered;
-
-                    //Tilføjer klonen til variablen dest (sectionen)
-                    dest.appendChild(klon);
-
-                })
+                document.querySelector(".p_h2").innerHTML = praktisk.title.rendered;
+                document.querySelector(".p_text").innerHTML = praktisk.content.rendered;
             }
+
             getJson2();
         }
     </script>

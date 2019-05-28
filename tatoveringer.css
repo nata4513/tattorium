@@ -236,9 +236,9 @@ li.dropdown {
 
 .tatoveringer {
     margin-top: -49.99vw;
-    height: 500px;
+    height: 1020px;
     font-size: 20px;
-    text-align: center;
+    text-align: left;
     line-height: 1.5;
     padding: 50px;
     background-color: #545554;
@@ -246,9 +246,9 @@ li.dropdown {
 }
 
 .praktisk {
-    height: 550px;
+    height: 2030px;
     font-size: 20px;
-    text-align: center;
+    text-align: left;
     line-height: 1.5;
     padding: 50px;
     background-color: #333332;
@@ -360,7 +360,7 @@ buttons a:hover {
     }
 
     .praktisk {
-        height: 400px;
+        height: 1150px;
         font-size: 20px;
         text-align: left;
         line-height: 1.5;
