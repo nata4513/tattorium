@@ -80,6 +80,48 @@
 
 
     <script>
+        //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
+        let fanart = [];
+
+        //Når dommet er loadet, kaldt funktionen start
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            async function hentJson() {
+                const url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/posts?=fan-art";
+
+                //henter data filen
+                const myJson = await fetch(url);
+
+
+                //den hentede json filen skal tolkes som json
+                fanart = await myJson.json();
+
+                //Kald funktionen som viser data i DOM
+                visFanart();
+            } //hent JSON fil i asynkron funktion
+
+            function visFanart() {
+                let dest = document.querySelector(".fanart");
+                let temp = document.querySelector("template");
+                console.log(temp);
+
+                // Det tomme array bliver fyldt med indhold
+                fanart.forEach(fan => {
+                    //Kloning af template-taggets indhold
+                    let klon = temp.cloneNode(true).content;
+
+                    klon.querySelector("img").src = fan.billede.guid;
+                    //Tilføjer klonen til variablen dest (sectionen)
+                    dest.appendChild(klon);
+
+                })
+            }
+            //Henter og viser den dynamiske datan fra WP
+            hentJson();
+        }
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }
