@@ -22,6 +22,11 @@ h1,
     font-size: 10vw;
 }
 
+h2 {
+    font-family: anton;
+
+}
+
 p {
     font-family: roboto;
 }
@@ -238,7 +243,7 @@ li.dropdown {
 
 
 .booking {
-    height: 1400px;
+    height: 1240px;
     font-size: 20px;
     text-align: left;
     line-height: 1.5;
@@ -256,6 +261,7 @@ button {
     opacity: 0.7;
     display: grid;
     grid-template-columns: 1fr;
+    font-family: roboto;
 }
 
 button a {
@@ -269,6 +275,7 @@ button a {
     position: relative;
     top: 3vw;
     margin: auto;
+    font-family: roboto;
 }
 
 button a:hover {
@@ -283,7 +290,48 @@ button a:hover {
 
 
 
+/****************FOOTER************/
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: left;
+    opacity: 0.9;
+}
 
+footer h2,
+footer p {
+    position: relative;
+    left: 10vw;
+    line-height: 150%;
+
+}
+
+.column {
+    float: left;
+    width: 100%;
+    background-color: black;
+    height: 30vw;
+}
+
+.insta {
+    position: relative;
+    left: 10vw;
+    top: -2.5vw;
+    width: 18vw;
+    height: 18vw;
+}
+
+.face {
+    position: relative;
+    left: 10vw;
+    top: -5vw;
+    width: 12vw;
+    height: 12vw;
+}
 
 
 
@@ -338,7 +386,7 @@ button a:hover {
 
 
     .booking {
-        height: 1000px;
+        height: 630px;
         font-size: 20px;
         text-align: left;
         line-height: 1.5;
@@ -349,7 +397,7 @@ button a:hover {
 
     .button1 {
         position: relative;
-        top: 15vw;
+        top: 1vw;
     }
 
 
@@ -365,5 +413,52 @@ button a:hover {
         width: 10%;
         position: absolute;
         top: -0.7vw;
+    }
+
+    footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        background-color: black;
+        text-align: left;
+        opacity: 0.9;
+    }
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -8vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: -9.5vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
     }
 }

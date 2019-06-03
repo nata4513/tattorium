@@ -16,6 +16,20 @@ img {
     width: 100%;
 }
 
+h1,
+    {
+    font-family: anton;
+    font-size: 10vw;
+}
+
+h2 {
+    font-family: anton;
+
+}
+
+p {
+    font-family: roboto;
+}
 
 
 /*****************ARROWS******************/
@@ -238,7 +252,22 @@ li.dropdown {
     padding: 50px;
     background-color: #767776;
     color: white;
+
 }
+
+.h1,
+.t1_h1,
+.t2_h1 {
+    font-family: anton;
+}
+
+.p,
+.t1_p,
+.t2_p {
+    font-family: roboto;
+}
+
+
 
 .parallax1 {
     background-image: url("billeder/fanart_mobile.png");
@@ -281,23 +310,53 @@ li.dropdown {
 
 
 
-/**************FOOTER*******************/
+/****************FOOTER************/
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: left;
+    opacity: 0.9;
+}
 
+footer h2,
+footer p {
+    position: relative;
+    left: 10vw;
+    line-height: 150%;
 
+}
 
+.column {
+    float: left;
+    width: 100%;
+    background-color: black;
+    height: 30vw;
+}
 
+.insta {
+    position: relative;
+    left: 10vw;
+    top: -2.5vw;
+    width: 18vw;
+    height: 18vw;
+}
 
-
-
-
-
-
-
-
+.face {
+    position: relative;
+    left: 10vw;
+    top: -5vw;
+    width: 12vw;
+    height: 12vw;
+}
 
 
 
 /*******************MEDIAQUARIES********************/
+
 
 @media only screen and (min-width: 992px) {
 
@@ -394,7 +453,7 @@ li.dropdown {
 
     .parallax2 {
         background-image: url("billeder/tatovering_desktop.png");
-        height: 450px;
+        height: 350px;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -411,5 +470,51 @@ li.dropdown {
         color: white;
     }
 
+    footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        background-color: black;
+        text-align: left;
+        opacity: 0.9;
+    }
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -8vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: -9.5vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
+    }
 
 }

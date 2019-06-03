@@ -16,14 +16,21 @@ img {
     width: 100%;
 }
 
-h1 {
+h1,
+    {
     font-family: anton;
     font-size: 10vw;
+}
+
+h2 {
+    font-family: anton;
+
 }
 
 p {
     font-family: roboto;
 }
+
 
 /*****************ARROWS******************/
 
@@ -153,7 +160,14 @@ ul {
     overflow: hidden;
     font-size: 1.5vw;
     font-family: roboto;
-    opacity: 1;
+}
+
+li a,
+.dropbtn {
+    display: inline-block;
+    color: black;
+    padding: 16px 16px;
+    text-decoration: none;
 }
 
 #desktop {
@@ -167,13 +181,6 @@ li {
     float: right;
 }
 
-li a,
-.dropbtn {
-    display: inline-block;
-    color: black;
-    padding: 16px 16px;
-    text-decoration: none;
-}
 
 li a:hover,
 .dropdown:hover .dropbtn {
@@ -267,11 +274,56 @@ input[type=submit]:hover {
 }
 
 .container {
-    border-radius: 5px;
     background-color: #333332;
     padding: 20px;
     color: white;
     font-family: roboto;
+}
+
+
+
+
+/****************FOOTER************/
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: left;
+    opacity: 0.9;
+}
+
+footer h2,
+footer p {
+    position: relative;
+    left: 10vw;
+    line-height: 150%;
+
+}
+
+.column {
+    float: left;
+    width: 100%;
+    background-color: black;
+    height: 30vw;
+}
+
+.insta {
+    position: relative;
+    left: 10vw;
+    top: -2.5vw;
+    width: 18vw;
+    height: 18vw;
+}
+
+.face {
+    position: relative;
+    left: 10vw;
+    top: -5vw;
+    width: 12vw;
+    height: 12vw;
 }
 
 
@@ -282,10 +334,152 @@ input[type=submit]:hover {
 
 
 
-
-
-
 /*******************MEDIAQUARIES********************/
+@media only screen and (min-width: 1024px) {
+    .logo {
+        width: 10%;
+        position: absolute;
+        top: -0.7vw;
+    }
+
+    .mobilemenu {
+        display: none;
+    }
+
+    span {
+        display: none;
+    }
+
+    #desktop {
+        display: block;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        float: right;
+        z-index: 1;
+    }
+
+
+    .box {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        display: block;
+    }
+
+    .box span {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-bottom: 2px solid white;
+        border-right: 2px solid white;
+        transform: rotate(45deg);
+        margin: -10px;
+        animation: animate 2s infinite;
+    }
+
+
+    .splash {
+        background-image: url("billeder/kontakt_desktop.png");
+        height: 700px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .splash h1 {
+        font-size: 6vw;
+        margin: 0;
+        position: relative;
+        left: 39vw;
+        top: 10vw;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid black;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+        opacity: 0.9;
+    }
+
+    input[type=submit] {
+        background-color: black;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: roboto;
+    }
+
+    input[type=submit]:hover {
+        color: #BB0000;
+    }
+
+    .container {
+        background-color: #333332;
+        padding: 20px;
+        color: white;
+        font-family: roboto;
+    }
+
+    footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        background-color: black;
+        text-align: left;
+        opacity: 0.9;
+    }
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -8vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: -9.5vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
+    }
+}
+
 
 @media only screen and (min-width: 992px) {
     .logo {
@@ -378,11 +572,56 @@ input[type=submit]:hover {
     }
 
     .container {
-        border-radius: 5px;
         background-color: #333332;
         padding: 20px;
         color: white;
         font-family: roboto;
     }
 
+    footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        background-color: black;
+        text-align: left;
+        opacity: 0.9;
+    }
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -8vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: -9.5vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
+    }
 }

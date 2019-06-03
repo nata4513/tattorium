@@ -31,55 +31,53 @@
             <span></span>
         </div>
 
-        <nav>
-
-            <div id="mobilemenu">
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <hr>
-                    <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
-                    <hr>
-                    <a href="fanart.html">FAN-ART</a>
-                    <hr>
-                    <a href="portraetter.html">PORTRÆTTER</a>
-                    <hr>
-                    <a href="tatoveringer.html">PRAKTISK</a>
-                    <hr>
-                    <a id="hoved" href="booking.html">BOOKING</a>
-                    <hr>
-                    <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
-                    <hr>
-                    <a id="hoved" href="faq.html">FAQ</a>
-                    <hr>
-                    <a id="hoved" href="om.html">OM</a>
-                    <hr>
-                    <a id="hoved" href="kontakt.html">KONTAKT</a>
-                    <hr>
-                </div>
-
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
+        <div id="mobilemenu">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr>
+                <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
+                <hr>
+                <a href="fanart.html">FAN-ART</a>
+                <hr>
+                <a href="portraetter.html">PORTRÆTTER</a>
+                <hr>
+                <a href="tatoveringer.html#praktisk">PRAKTISK</a>
+                <hr>
+                <a id="hoved" href="booking.html">BOOKING</a>
+                <hr>
+                <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
+                <hr>
+                <a id="hoved" href="faq.html">FAQ</a>
+                <hr>
+                <a id="hoved" href="om.html">OM</a>
+                <hr>
+                <a id="hoved" href="kontakt.html">KONTAKT</a>
+                <hr>
             </div>
 
-            <div id="desktop">
-                <ul>
-                    <li><a href="kontakt.html">KONTAKT</a></li>
-                    <li><a href="om.html">OM</a></li>
-                    <li><a href="faq.html">F.A.Q</a></li>
-                    <li><a href="wish.html">WISH LIST TATTOO</a></li>
-                    <li><a href="booking.html">BOOKING</a></li>
-                    <li class="dropdown">
-                        <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
-                        <div class="dropdown-content">
-                            <a href="fanart.html">FAN-ART</a>
-                            <a href="portraetter.html">PORTRÆTTER</a>
-                            <a href="tatoveringer.html">PRAKTISK</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+        </div>
+
+        <div id="desktop">
+            <ul>
+                <li><a href="kontakt.html">KONTAKT</a></li>
+                <li><a href="om.html">OM</a></li>
+                <li><a href="faq.html">F.A.Q</a></li>
+                <li><a href="wish.html">WISH LIST TATTOO</a></li>
+                <li><a href="booking.html">BOOKING</a></li>
+                <li class="dropdown">
+                    <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
+                    <div class="dropdown-content">
+                        <a href="fanart.html">FAN-ART</a>
+                        <a href="portraetter.html">PORTRÆTTER</a>
+                        <a href="tatoveringer.html#praktisk">PRAKTISK</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </header>
+
 
     <section>
 
@@ -98,7 +96,38 @@
 
     </section>
 
+    <footer>
+        <div class="column">
+            <h2>Kontakt</h2>
+            <p>
+                +4553588860 <br>
+                info@tattorium.dk</p>
+        </div>
+        <div class="column">
+            <h2>Adresse Sjælland</h2>
+            <p>Rosenørns Allé 6<br>
+                1634 KBH V</p>
+        </div>
+        <div class="column">
+            <h2>Adresse Bornholm</h2>
+            <p>Kirkepladsen 5<br>
+                3700 Rønne</p>
+        </div>
 
+
+        <div class="some">
+
+            <a href="https://www.facebook.com/tattoriumcph/">
+                <img src="img/facebook_icon.png" alt="facebook" class="face">
+            </a>
+            <a href="https://www.instagram.com/tattorium/?hl=da">
+                <img src="img/instagram_icon.png" alt="instagram" class="insta">
+            </a>
+
+
+        </div>
+
+    </footer>
 
     <script>
         //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress

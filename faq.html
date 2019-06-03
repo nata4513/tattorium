@@ -11,6 +11,7 @@
 
 <body>
     <header>
+
         <div class="logo"><a href="index.html"><img src="logo_hvid.png" alt="logo"></a></div>
 
         <div class="box">
@@ -28,7 +29,7 @@
                 <hr>
                 <a href="portraetter.html">PORTRÆTTER</a>
                 <hr>
-                <a href="tatoveringer.html">PRAKTISK</a>
+                <a href="tatoveringer.html#praktisk">PRAKTISK</a>
                 <hr>
                 <a id="hoved" href="booking.html">BOOKING</a>
                 <hr>
@@ -58,12 +59,13 @@
                     <div class="dropdown-content">
                         <a href="fanart.html">FAN-ART</a>
                         <a href="portraetter.html">PORTRÆTTER</a>
-                        <a href="tatoveringer.html">PRAKTISK</a>
+                        <a href="tatoveringer.html#praktisk">PRAKTISK</a>
                     </div>
                 </li>
             </ul>
         </div>
     </header>
+
 
     <section>
 
@@ -71,20 +73,69 @@
             <h1>F.A.Q</h1>
         </div>
 
-        <main class="faq">
-            <template>
-                <button class="accordion"></button>
-                <div class="panel">
-                    <p class="svar"></p>
-                </div>
-            </template>
-        </main>
+        <main class="faq"> </main>
+        <template>
+            <button class="collapsible"></button>
+            <div class="content">
+                <p></p>
+            </div>
+        </template>
+
+
 
     </section>
 
 
+    <footer>
+        <div class="column">
+            <h2>Kontakt</h2>
+            <p>
+                +4553588860 <br>
+                info@tattorium.dk</p>
+        </div>
+        <div class="column">
+            <h2>Adresse Sjælland</h2>
+            <p>Rosenørns Allé 6<br>
+                1634 KBH V</p>
+        </div>
+        <div class="column">
+            <h2>Adresse Bornholm</h2>
+            <p>Kirkepladsen 5<br>
+                3700 Rønne</p>
+        </div>
+
+
+        <div class="some">
+
+            <a href="https://www.facebook.com/tattoriumcph/">
+                <img src="img/facebook_icon.png" alt="facebook" class="face">
+            </a>
+            <a href="https://www.instagram.com/tattorium/?hl=da">
+                <img src="img/instagram_icon.png" alt="instagram" class="insta">
+            </a>
+
+
+        </div>
+
+    </footer>
 
     <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
+
         //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
         let faq = [];
 
@@ -94,6 +145,8 @@
         function start() {
             hentJson();
             //Henter og viser den dynamiske datan fra WP
+
+
         }
 
         async function hentJson() {
@@ -122,7 +175,7 @@
             faq.forEach(spm => {
                 //Kloning af template-taggets indhold
                 let klon = temp.cloneNode(true).content;
-                klon.querySelector(".accordion").innerHTML = spm.sprgsml;
+                klon.querySelector(".collapsible").innerHTML = spm.sprgsml;
                 klon.querySelector("p").innerHTML = spm.svar;
                 //Tilføjer klonen til variablen dest (sectionen)
                 dest.appendChild(klon);
@@ -141,22 +194,6 @@
             document.getElementById("mySidenav").style.width = "0";
         }
 
-
-
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
     </script>
 </body>
 

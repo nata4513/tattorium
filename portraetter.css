@@ -16,9 +16,15 @@ img {
     width: 100%;
 }
 
-h1 {
+h1,
+    {
     font-family: anton;
     font-size: 10vw;
+}
+
+h2 {
+    font-family: anton;
+
 }
 
 p {
@@ -235,24 +241,83 @@ li.dropdown {
 }
 
 .portrait {
-    height: 500px;
+    height: 4700px;
     font-size: 20px;
     text-align: center;
     line-height: 1.5;
     padding: 50px;
     background-color: #767776;
     color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+
+@media only screen and (min-width: 770px) {
+    .portrait {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .portrait {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 
 
 
+/****************FOOTER************/
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: left;
+    opacity: 0.9;
+}
 
+footer h2,
+footer p {
+    position: relative;
+    left: 10vw;
+    line-height: 150%;
 
+}
 
+.column {
+    float: left;
+    width: 100%;
+    background-color: black;
+    height: 30vw;
+}
 
+.insta {
+    position: relative;
+    left: 10vw;
+    top: -2.5vw;
+    width: 18vw;
+    height: 18vw;
+}
 
-
+.face {
+    position: relative;
+    left: 10vw;
+    top: -5vw;
+    width: 12vw;
+    height: 12vw;
+}
 
 
 
@@ -330,5 +395,61 @@ li.dropdown {
         top: 10vw;
     }
 
+    .portrait {
+        height: 1500px;
+        font-size: 20px;
+        text-align: left;
+        line-height: 1.5;
+        padding: 50px;
+        background-color: #767776;
+        color: white;
+    }
+
+  footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        background-color: black;
+        text-align: left;
+        opacity: 0.9;
+    }
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -8vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: -9.5vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
+    }
 
 }

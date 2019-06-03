@@ -16,9 +16,15 @@ img {
     width: 100%;
 }
 
-h1 {
+h1,
+    {
     font-family: anton;
     font-size: 10vw;
+}
+
+h2 {
+    font-family: anton;
+
 }
 
 p {
@@ -292,6 +298,50 @@ buttons a:hover {
     padding: 3vw;
 }
 
+/****************FOOTER************/
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: left;
+    opacity: 0.9;
+}
+
+footer h2,
+footer p {
+    position: relative;
+    left: 10vw;
+    line-height: 150%;
+}
+
+
+.column {
+    float: left;
+    width: 100%;
+    background-color: black;
+    height: 30vw;
+}
+
+.insta {
+    position: relative;
+    left: 10vw;
+    top: -2.5vw;
+    width: 18vw;
+    height: 18vw;
+}
+
+.face {
+    position: relative;
+    left: 10vw;
+    top: -5vw;
+    width: 12vw;
+    height: 12vw;
+}
+
+
 
 /*******************MEDIAQUARIES********************/
 
@@ -418,5 +468,52 @@ buttons a:hover {
 
     h1 {
         font-size: 3vw;
+    }
+
+    footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        background-color: black;
+        text-align: left;
+        opacity: 0.9;
+    }
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -8vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: -9.5vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
     }
 }

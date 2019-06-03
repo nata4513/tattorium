@@ -16,14 +16,21 @@ img {
     width: 100%;
 }
 
-h1 {
+h1,
+    {
     font-family: anton;
     font-size: 10vw;
+}
+
+h2 {
+    font-family: anton;
+
 }
 
 p {
     font-family: roboto;
 }
+
 
 /*****************ARROWS******************/
 
@@ -235,21 +242,81 @@ li.dropdown {
 }
 
 
-.wish {
-    height: 500px;
+.wishlist {
+    height: 7000px;
     font-size: 20px;
     text-align: center;
     line-height: 1.5;
     padding: 50px;
     background-color: #767776;
     color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
 }
 
 
+img {
+    width: 100%;
+}
 
 
+@media only screen and (min-width: 770px) {
+    .wishlist {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
 
+@media only screen and (min-width: 1024px) {
+    .wishlist {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+/****************FOOTER************/
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: left;
+    opacity: 0.9;
+}
+
+footer h2,
+footer p {
+    position: relative;
+    left: 10vw;
+    line-height: 150%;
+
+}
+
+.column {
+    float: left;
+    width: 100%;
+    background-color: black;
+    height: 30vw;
+}
+
+.insta {
+    position: relative;
+    left: 10vw;
+    top: -2.5vw;
+    width: 18vw;
+    height: 18vw;
+}
+
+.face {
+    position: relative;
+    left: 10vw;
+    top: -5vw;
+    width: 12vw;
+    height: 12vw;
+}
 
 
 
@@ -313,8 +380,8 @@ li.dropdown {
     }
 
 
-    .wish {
-        height: 400px;
+    .wishlist {
+        height: 2400px;
         font-size: 20px;
         text-align: left;
         line-height: 1.5;
@@ -323,8 +390,6 @@ li.dropdown {
         color: white;
     }
 
-
-
     .splash h1 {
         font-size: 6vw;
         margin: 0;
@@ -332,54 +397,51 @@ li.dropdown {
         left: 30vw;
         top: 10vw;
     }
-}
 
-@media only screen and (max-width: 900px) {
-
-    #liste {
-        max-width: 900px;
+    footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        background-color: black;
+        text-align: left;
+        opacity: 0.9;
     }
 
-    #indhold img {
-        max-width: 370px;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-
-    /* For tablets*/
-    #liste {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
     }
 
-    .ret {
-        margin: 0 auto;
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
     }
-}
 
-@media only screen and (min-width: 940px) {
-
-    /* For computers */
-    #liste {
-        display: grid;
-        padding-top: 10vw;
-        grid-template-columns: repeat(3);
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
     }
-}
 
-.filter {
-    font-weight: 400;
-    font-style: normal;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-size: 14px;
-    padding: 8px;
-    color: black;
-    border: none;
-}
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -8vw;
+        width: 8vw;
+        height: 8vw;
+    }
 
-
-.ret img {
-    max-width: 370px;
+    .face {
+        position: relative;
+        top: -9.5vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
+    }
 }
