@@ -18,50 +18,53 @@
             <span></span>
             <span></span>
         </div>
+        <nav>
+            <div id="mobilemenu">
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <hr>
+                    <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
+                    <hr>
+                    <a href="fanart.html">FAN-ART</a>
+                    <hr>
+                    <a href="portraetter.html">PORTRÆTTER</a>
+                    <hr>
+                    <a href="tatoveringer.html">PRAKTISK</a>
+                    <hr>
+                    <a id="hoved" href="booking.html">BOOKING</a>
+                    <hr>
+                    <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
+                    <hr>
+                    <a id="hoved" href="faq.html">FAQ</a>
+                    <hr>
+                    <a id="hoved" href="om.html">OM</a>
+                    <hr>
+                    <a id="hoved" href="kontakt.html">KONTAKT</a>
+                    <hr>
+                </div>
 
-        <div id="mobilemenu">
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <hr>
-                <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
-                <hr>
-                <a href="fanart.html">FAN-ART</a>
-                <hr>
-                <a href="portraetter.html">PORTRÆTTER</a>
-                <hr>
-                <a href="tatoveringer.html">PRAKTISK</a>
-                <hr>
-                <a id="hoved" href="booking.html">BOOKING</a>
-                <hr>
-                <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
-                <hr>
-                <a id="hoved" href="om.html">OM</a>
-                <hr>
-                <a id="hoved" href="kontakt.html">KONTAKT</a>
-                <hr>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
             </div>
 
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
-        </div>
-
-        <div id="desktop">
-            <ul>
-                <li><a href="kontakt.html">KONTAKT</a></li>
-                <li><a href="om.html">OM</a></li>
-                <li><a href="faq.html">F.A.Q</a></li>
-                <li><a href="wish.html">WISH LIST TATTOO</a></li>
-                <li><a href="booking.html">BOOKING</a></li>
-                <li class="dropdown">
-                    <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
-                    <div class="dropdown-content">
-                        <a href="fanart.html">FAN-ART</a>
-                        <a href="portraetter.html">PORTRÆTTER</a>
-                        <a href="tatoveringer.html">PRAKTISK</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+            <div id="desktop">
+                <ul>
+                    <li><a href="kontakt.html">KONTAKT</a></li>
+                    <li><a href="om.html">OM</a></li>
+                    <li><a href="faq.html">F.A.Q</a></li>
+                    <li><a href="wish.html">WISH LIST TATTOO</a></li>
+                    <li><a href="booking.html">BOOKING</a></li>
+                    <li class="dropdown">
+                        <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
+                        <div class="dropdown-content">
+                            <a href="fanart.html">FAN-ART</a>
+                            <a href="portraetter.html">PORTRÆTTER</a>
+                            <a href="tatoveringer.html">PRAKTISK</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
 
@@ -69,14 +72,62 @@
         <h1>PORTRÆTTER</h1>
     </div>
 
-    <div class="portrait">
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dolor diam. Aenean eleifend lacus eget arcu bibendum, et elementum sapien eleifend. Phasellus et arcu et lorem vehicula pulvinar vel sed nunc. Pellentesque sed mi sed dolor molestie hendrerit. Proin quis scelerisque libero. Integer quam sapien, tincidunt id malesuada a, rutrum non odio.
-        </p>
-    </div>
+    <main class="portrait"> </main>
+    <template class="por">
+        <article>
+            <img>
+        </article>
+    </template>
 
 
 
     <script>
+        //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
+        let portrait = [];
+
+        //Når dommet er loadet, kaldt funktionen start
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+            //Henter og viser den dynamiske datan fra WP
+        }
+
+        async function hentJson() {
+            const url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/portrait";
+
+            //henter data filen
+            const myJson = await fetch(url);
+
+
+            //den hentede json filen skal tolkes som json
+            // Det tomme array bliver fyldt med indhold
+
+            portrait = await myJson.json();
+
+            console.log(portrait);
+
+            //Kald funktionen som viser data i DOM
+            visPortrait();
+        } //hent JSON fil i asynkron funktion
+
+        function visPortrait() {
+            let dest = document.querySelector(".portrait");
+            let temp = document.querySelector("template");
+            console.log(temp);
+
+            portrait.forEach(por => {
+                //Kloning af template-taggets indhold
+                let klon = temp.cloneNode(true).content;
+
+                klon.querySelector("img").src = por.billede.guid;
+                //Tilføjer klonen til variablen dest (sectionen)
+                dest.appendChild(klon);
+
+            })
+        }
+
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }

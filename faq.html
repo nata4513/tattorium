@@ -34,6 +34,8 @@
                 <hr>
                 <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
                 <hr>
+                <a id="hoved" href="faq.html">FAQ</a>
+                <hr>
                 <a id="hoved" href="om.html">OM</a>
                 <hr>
                 <a id="hoved" href="kontakt.html">KONTAKT</a>
@@ -69,44 +71,68 @@
             <h1>F.A.Q</h1>
         </div>
 
-        <div class="faq">
-
-            <button class="accordion">Lorem ipsum</button>
-            <div class="panel">
-                <p class="svar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Lorem ipsum</button>
-            <div class="panel">
-                <p class="svar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Lorem ipsum</button>
-            <div class="panel">
-                <p class="svar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button class="accordion">Lorem ipsum</button>
-            <div class="panel">
-                <p class="svar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Lorem ipsum</button>
-            <div class="panel">
-                <p class="svar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Lorem ipsum</button>
-            <div class="panel">
-                <p class="svar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-        </div>
+        <main class="faq">
+            <template>
+                <button class="accordion"></button>
+                <div class="panel">
+                    <p class="svar"></p>
+                </div>
+            </template>
+        </main>
 
     </section>
 
 
 
     <script>
+        //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
+        let faq = [];
+
+        //Når dommet er loadet, kaldt funktionen start
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+            //Henter og viser den dynamiske datan fra WP
+        }
+
+        async function hentJson() {
+            const url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/faq";
+
+            //henter data filen
+            const myJson = await fetch(url);
+
+
+            //den hentede json filen skal tolkes som json
+            // Det tomme array bliver fyldt med indhold
+
+            faq = await myJson.json();
+
+            console.log(faq);
+
+            //Kald funktionen som viser data i DOM
+            visFaq();
+        } //hent JSON fil i asynkron funktion
+
+        function visFaq() {
+            let dest = document.querySelector(".faq");
+            let temp = document.querySelector("template");
+            console.log(temp);
+
+            faq.forEach(spm => {
+                //Kloning af template-taggets indhold
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector(".accordion").innerHTML = spm.sprgsml;
+                klon.querySelector("p").innerHTML = spm.svar;
+                //Tilføjer klonen til variablen dest (sectionen)
+                dest.appendChild(klon);
+            })
+        }
+
+
+
+
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }
@@ -114,6 +140,8 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
+
 
         var acc = document.getElementsByClassName("accordion");
         var i;

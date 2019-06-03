@@ -35,6 +35,8 @@
                 <hr>
                 <a id="hoved" href="wish.html">WISH LIST TATTOO</a>
                 <hr>
+                <a id="hoved" href="faq.html">FAQ</a>
+                <hr>
                 <a id="hoved" href="om.html">OM</a>
                 <hr>
                 <a id="hoved" href="kontakt.html">KONTAKT</a>
@@ -64,52 +66,92 @@
         </div>
     </header>
 
-    <section>
-        <div class="parallax">
-        </div>
-        <div class="tekst">
-            <h1 class="h1">VELKOMMEN TIL TATTORIUM</h1>
-            <p class="p"> På siderne herover, kan du læse meget mere om tatoveringer, booking og pleje af din tattoo.
-                Jeg glæder mig til at tatovere dig. Vi ses!
-            </p>
-        </div>
+    <div class="parallax">
+    </div>
+    <div class="tekst">
+        <h1 class="h1">VELKOMMEN TIL TATTORIUM</h1>
+        <p class="p"> På siderne herover, kan du læse meget mere om tatoveringer, booking og pleje af din tattoo.
+            Jeg glæder mig til at tatovere dig. Vi ses!
+        </p>
+    </div>
 
 
 
-        <div class="parallax1">
-        </div>
-        <div class="tekst1">
-            <h1>FAN-ART</h1>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dolor diam. Aenean eleifend lacus eget arcu bibendum, et elementum sapien eleifend. Phasellus et arcu et lorem vehicula pulvinar vel sed nunc. Pellentesque sed mi sed dolor molestie hendrerit. Proin quis scelerisque libero. Integer quam sapien, tincidunt id malesuada a, rutrum non odio.
-            </p>
-        </div>
+    <div class="parallax1">
+    </div>
 
 
+    <main class="tekst1">
+        <section>
+            <h1 class="t1_h1"></h1>
+            <p class="t1_p"></p>
+        </section>
+    </main>
 
-        <div class="parallax2">
-        </div>
-        <div class="tekst2">
-            <h1>PORTRÆTTER</h1>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in dolor diam. Aenean eleifend lacus eget arcu bibendum, et elementum sapien eleifend. Phasellus et arcu et lorem vehicula pulvinar vel sed nunc. Pellentesque sed mi sed dolor molestie hendrerit. Proin quis scelerisque libero. Integer quam sapien, tincidunt id malesuada a, rutrum non odio.
-            </p>
-        </div>
+    <div class="parallax2">
+    </div>
 
-    </section>
-
-
-    <div class="footer">
+    <div class="tekst2">
+        <section>
+            <h1 class="t2_h1"></h1>
+            <p class="t2_p"></p>
+        </section>
     </div>
 
 
 
 
-
-
-
-
-
-
     <script>
+        //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
+
+        let tekst1;
+        let tekst2;
+
+        //Når dommet er loadet, kaldt funktionen start
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        function start() {
+
+            async function getJson() {
+                console.log("tekst1");
+                let url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/99";
+                //henter data fil
+                let jsonData = await fetch(url);
+                //den hentede json filen skal tolkes som json
+                tekst1 = await jsonData.json();
+                //Kald funktionen som viser data i DOM
+                visTekst1();
+            }; //hent JSON fil i asynkron funktion
+
+
+            function visTekst1() {
+                document.querySelector(".t1_h1").innerHTML = tekst1.title.rendered;
+                document.querySelector(".t1_p").innerHTML = tekst1.content.rendered;
+            }
+
+            getJson();
+
+            async function getJson2() {
+                console.log("tekst2");
+                let url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/101";
+                //henter data fil
+                let jsonData = await fetch(url);
+                //den hentede json filen skal tolkes som json
+                tekst2 = await jsonData.json();
+                //Kald funktionen som viser data i DOM
+                visTekst2();
+            };
+
+
+            function visTekst2() {
+                document.querySelector(".t2_h1").innerHTML = tekst2.title.rendered;
+                document.querySelector(".t2_p").innerHTML = tekst2.content.rendered;
+            }
+
+            getJson2();
+        }
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }
