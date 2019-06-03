@@ -219,6 +219,17 @@ li.dropdown {
 }
 
 /*****************SECTION********************/
+
+.splash p {
+    color: white;
+    font-family: roboto;
+    font-size: 4vw;
+    position: relative;
+    top: 17vw;
+    padding: 5vw;
+    text-align: center;
+}
+
 .splash {
     background-image: url("billeder/fanart_mobile.png");
     height: 700px;
@@ -435,7 +446,7 @@ footer p {
         font-size: 6vw;
         margin: 0;
         position: relative;
-        left: 40vw;
+        left: 38vw;
         top: 10vw;
     }
 
@@ -484,6 +495,16 @@ footer p {
         left: 3.3vw;
         width: 5vw;
         height: 5vw;
+    }
+
+    .splash p {
+        color: white;
+        font-family: roboto;
+        font-size: 2vw;
+        position: relative;
+        top: 10vw;
+        padding: 5vw;
+        text-align: center;
     }
 
 }

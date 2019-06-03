@@ -240,6 +240,16 @@ li.dropdown {
     top: 20vw;
 }
 
+.splash p {
+    color: white;
+    font-family: roboto;
+    font-size: 4vw;
+    position: relative;
+    top: 17vw;
+    padding: 5vw;
+    text-align: center;
+}
+
 .portrait {
     height: 4700px;
     font-size: 20px;
@@ -405,7 +415,7 @@ footer p {
         color: white;
     }
 
-  footer {
+    footer {
         position: relative;
         left: 0;
         bottom: 0;
@@ -452,4 +462,13 @@ footer p {
         height: 5vw;
     }
 
+    .splash p {
+        color: white;
+        font-family: roboto;
+        font-size: 2vw;
+        position: relative;
+        top: 10vw;
+        padding: 5vw;
+        text-align: center;
+    }
 }

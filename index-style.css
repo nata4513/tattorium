@@ -245,7 +245,7 @@ li.dropdown {
 
 
 .tekst {
-    height: 500px;
+    height: 400px;
     font-size: 20px;
     text-align: left;
     line-height: 1.5;
@@ -307,7 +307,35 @@ li.dropdown {
     color: white;
 }
 
+.p-button {
+    width: 25vw;
+    height: 10vw;
+    color: white;
+    opacity: 0.9;
+}
 
+.f-button {
+    width: 20vw;
+    height: 10vw;
+    display: flex;
+    color: white;
+    opacity: 0.9;
+}
+
+.p-button a,
+.f-button a {
+    text-decoration: none;
+    color: black;
+    font-family: "Roboto";
+    font-size: 4vw;
+    ;
+}
+
+
+.p-button a:hover,
+.f-button a:hover {
+    color: #BB0000;
+}
 
 
 /****************FOOTER************/
@@ -517,4 +545,32 @@ footer p {
         height: 5vw;
     }
 
+    .p-button {
+        width: 9vw;
+        height: 4vw;
+        color: white;
+        opacity: 0.9;
+    }
+
+    .f-button {
+        width: 8vw;
+        height: 4vw;
+        display: flex;
+        color: white;
+        opacity: 0.9;
+    }
+
+    .p-button a,
+    .f-button a {
+        text-decoration: none;
+        color: black;
+        font-family: "Roboto";
+        font-size: 1.5vw;
+        ;
+    }
+
+    .p-button a:hover,
+    .f-button a:hover {
+        color: #BB0000;
+    }
 }

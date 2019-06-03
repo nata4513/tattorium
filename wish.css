@@ -241,6 +241,15 @@ li.dropdown {
     top: 20vw;
 }
 
+.splash p {
+    color: white;
+    font-family: roboto;
+    font-size: 4vw;
+    position: relative;
+    top: 17vw;
+    padding: 5vw;
+    text-align: center;
+}
 
 .wishlist {
     height: 7000px;
@@ -443,5 +452,15 @@ footer p {
         left: 3.3vw;
         width: 5vw;
         height: 5vw;
+    }
+
+    .splash p {
+        color: white;
+        font-family: roboto;
+        font-size: 2vw;
+        position: relative;
+        top: 10vw;
+        padding: 5vw;
+        text-align: center;
     }
 }

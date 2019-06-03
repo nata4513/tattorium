@@ -219,6 +219,7 @@ li.dropdown {
     display: block;
 }
 
+
 /*****************SECTION********************/
 
 
@@ -251,7 +252,6 @@ li.dropdown {
     opacity: 0.7;
     color: white;
     position: relative;
-    z-index: 5;
 }
 
 .overskrift {
@@ -312,6 +312,12 @@ footer p {
 /*******************MEDIAQUARIES********************/
 
 @media only screen and (min-width: 992px) {
+
+    .logo {
+        width: 10%;
+        position: absolute;
+        top: -0.7vw;
+    }
 
     .mobilemenu {
         display: none;
@@ -389,7 +395,8 @@ footer p {
         position: absolute;
         top: -0.7vw;
     }
-  footer {
+
+    footer {
         position: relative;
         left: 0;
         bottom: 0;
