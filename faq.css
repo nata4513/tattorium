@@ -9,12 +9,12 @@ html {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-size: 100%;
 }
 
 img {
     width: 100%;
 }
+
 h1,
     {
     font-family: anton;
@@ -41,7 +41,7 @@ p {
 
 .box {
     position: absolute;
-    z-index: 1;
+    z-index: 5;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -169,7 +169,7 @@ ul {
 }
 
 
-li {
+#menud {
     float: right;
 }
 
@@ -181,19 +181,19 @@ li a,
     text-decoration: none;
 }
 
-li a:hover,
+#menud a:hover,
 .dropdown:hover .dropbtn {
     color: #BB0000;
 
 }
 
-li a:hover,
+#menud a:hover,
 .dropdown:hover .dropbtn {
     color: #BB0000;
 }
 
 
-li.dropdown {
+#menud.dropdown {
     display: inline-block;
 }
 
@@ -243,61 +243,89 @@ li.dropdown {
 
 
 .faq {
-    height: 450px;
-    font-size: 20px;
-    text-align: center;
+    height: 650px;
     line-height: 1.5;
-    padding: 50px;
-    background-color: black;
-    opacity: 0.7;
+    padding: 20px;
+    background-color: #767776;
     color: white;
 }
 
 
 /*********ACCORDION***************/
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-    background-color: #eee;
-    color: #444;
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+/* style */
+.a-container {
+    width: 450px;
+    margin: 20px auto;
+    background-color: #333332;
+}
+
+.a-container label {
+    display: block;
+    position: relative;
     cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active,
-.collapsible:hover {
-    background-color: #ccc;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.content {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    font-family: roboto;
-}
-
-.collapsible:after {
-    content: '\02795';
-    /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
     color: white;
-    float: right;
-    margin-left: 5px;
+    background-color: #545554;
+    border-bottom: 1px solid #ddd;
+    font-family: roboto;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+
 }
 
-.active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
+.a-container label:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 8px solid #aaa;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 6px solid transparent;
+    position: absolute;
+    right: 10px;
+    top: 16px;
 }
 
+.a-container input:checked + label,
+.a-container label:hover {
+    background-color: #ddd;
+    color: #222;
+
+}
+
+.a-container input:checked + label:after {
+    border-top: 8px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid #222;
+    border-left: 6px solid transparent;
+    top: 6px;
+}
+
+.a-content {
+    padding: 0 20px 20px;
+    display: none;
+    font-family: roboto;
+    font-size: 3vw;
+}
+
+.a-container input:checked ~ .a-content {
+    display: block;
+}
 
 /****************FOOTER************/
 footer {
@@ -348,6 +376,76 @@ footer p {
 
 
 /*******************MEDIAQUARIES********************/
+@media only screen and (min-width: 770px) {
+    .logo {
+        width: 20%;
+        position: absolute;
+        top: -0.7vw;
+    }
+
+    .sidenav a {
+        font-size: 2.5vw;
+    }
+
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -3.5vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .splash h1 {
+        font-size: 9vw;
+        margin: 0;
+        position: relative;
+        left: 40vw;
+        top: 16vw;
+    }
+
+    .a-content {
+        padding: 0 20px 20px;
+        display: none;
+        font-family: roboto;
+        font-size: 2.3vw;
+    }
+
+    .a-container {
+        width: 700px;
+        margin: 20px auto;
+        background-color: #333332;
+    }
+
+}
+
+
+
+
+
+
+
 
 @media only screen and (min-width: 992px) {
     .logo {
@@ -403,13 +501,12 @@ footer p {
 
 
     .faq {
-        height: 1000px;
+        height: 730px;
         font-size: 20px;
         text-align: left;
         line-height: 1.5;
         padding: 50px;
-        background-color: black;
-        opacity: 0.7;
+        background-color: #767776;
         color: white;
     }
 
@@ -423,7 +520,7 @@ footer p {
         top: 10vw;
     }
 
-  footer {
+    footer {
         position: relative;
         left: 0;
         bottom: 0;
@@ -468,5 +565,79 @@ footer p {
         left: 3.3vw;
         width: 5vw;
         height: 5vw;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    input[type=radio] {
+        display: none;
+    }
+
+    /* style */
+    .a-container {
+        width: 1000px;
+        margin: 20px auto;
+        background-color: #333332;
+    }
+
+    .a-container label {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 20px;
+        color: white;
+        background-color: #545554;
+        border-bottom: 1px solid #ddd;
+        font-family: roboto;
+        -webkit-transition: all .2s ease;
+        -moz-transition: all .2s ease;
+        -ms-transition: all .2s ease;
+        -o-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+
+    .a-container label:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 8px solid #aaa;
+        border-right: 6px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 6px solid transparent;
+        position: absolute;
+        right: 10px;
+        top: 16px;
+    }
+
+    .a-container input:checked + label,
+    .a-container label:hover {
+        background-color: #ddd;
+        color: #222;
+
+    }
+
+    .a-container input:checked + label:after {
+        border-top: 8px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 8px solid #222;
+        border-left: 6px solid transparent;
+        top: 6px;
+    }
+
+    .a-content {
+        padding: 0 20px 20px;
+        display: none;
+        font-family: roboto;
+        font-size: 1.5vw;
+    }
+
+    .a-container input:checked ~ .a-content {
+        display: block;
     }
 }

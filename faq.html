@@ -49,12 +49,12 @@
 
         <div id="desktop">
             <ul>
-                <li><a href="kontakt.html">KONTAKT</a></li>
-                <li><a href="om.html">OM</a></li>
-                <li><a href="faq.html">F.A.Q</a></li>
-                <li><a href="wish.html">WISH LIST TATTOO</a></li>
-                <li><a href="booking.html">BOOKING</a></li>
-                <li class="dropdown">
+                <li id="menud"><a href="kontakt.html">KONTAKT</a></li>
+                <li id="menud"><a href="om.html">OM</a></li>
+                <li id="menud"><a href="faq.html">F.A.Q</a></li>
+                <li id="menud"><a href="wish.html">WISH LIST TATTOO</a></li>
+                <li id="menud"><a href="booking.html">BOOKING</a></li>
+                <li class="dropdown" id="menud">
                     <a class="dropbtn"><a href="tatoveringer.html">TATOVERINGER</a></a>
                     <div class="dropdown-content">
                         <a href="fanart.html">FAN-ART</a>
@@ -73,12 +73,19 @@
             <h1>F.A.Q</h1>
         </div>
 
-        <main class="faq"> </main>
+        <main class="faq">
+            <ul class="a-container"></ul>
+        </main>
+
         <template>
-            <button class="collapsible"></button>
-            <div class="content">
-                <p></p>
-            </div>
+            <li class="">
+                <input type="radio" name="ac" id="" />
+                <label for="" class="spørg"></label>
+                <div class="a-content">
+                    <p></p>
+                </div>
+            </li>
+
         </template>
 
 
@@ -120,23 +127,6 @@
     </footer>
 
     <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        }
-
-
-        //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
         let faq = [];
 
         //Når dommet er loadet, kaldt funktionen start
@@ -145,8 +135,6 @@
         function start() {
             hentJson();
             //Henter og viser den dynamiske datan fra WP
-
-
         }
 
         async function hentJson() {
@@ -168,17 +156,33 @@
         } //hent JSON fil i asynkron funktion
 
         function visFaq() {
-            let dest = document.querySelector(".faq");
+            let dest = document.querySelector(".faq .a-container");
             let temp = document.querySelector("template");
             console.log(temp);
 
-            faq.forEach(spm => {
+
+            //Vi laver en variabel, så vi kan lave et id længere nede//
+            faq.forEach((spm, i) => {
                 //Kloning af template-taggets indhold
                 let klon = temp.cloneNode(true).content;
-                klon.querySelector(".collapsible").innerHTML = spm.sprgsml;
+                klon.querySelector(".spørg").innerHTML = spm.sprgsml;
                 klon.querySelector("p").innerHTML = spm.svar;
                 //Tilføjer klonen til variablen dest (sectionen)
+
+                //Vi vælger at i input skal der laves et individuelt id for hvert spm//
+                klon.querySelector("input").setAttribute("id", "a-" + i);
+
+                //Her laver vi en variabel der hedder nyid//
+                let nyid = klon.querySelector("input").getAttribute("id");
+
+                //Her sætter vi label for hver id//
+                klon.querySelector("label").setAttribute("for", nyid);
+
+                //Vi console logger listen//
+                console.log(klon.querySelector("li"));
+
                 dest.appendChild(klon);
+
             })
         }
 
@@ -193,7 +197,6 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
-
     </script>
 </body>
 

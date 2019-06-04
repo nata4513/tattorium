@@ -41,11 +41,11 @@ p {
 
 .box {
     position: absolute;
+    z-index: 5;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
-
 }
 
 .box span {
@@ -344,6 +344,135 @@ footer p {
 
 
 /*******************MEDIAQUARIES********************/
+@media only screen and (min-width: 770px) {
+    .logo {
+        width: 20%;
+        position: absolute;
+        top: -0.7vw;
+    }
+
+    .sidenav a {
+        font-size: 2.5vw;
+    }
+
+
+    footer h2,
+    footer p {
+        position: relative;
+        left: 4vw;
+    }
+
+    .column {
+        float: left;
+        width: 33.33%;
+        background-color: black;
+        height: 20vw;
+    }
+
+    .insta {
+        position: relative;
+        left: 2vw;
+        top: -3.5vw;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .face {
+        position: relative;
+        top: vw;
+        left: 3.3vw;
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .splash {
+        background-image: url("billeder/tatovering_desktop.png");
+        height: 700px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .tatoveringer {
+        margin-top: -9.94vw;
+        height: 700px;
+        font-size: 20px;
+        text-align: left;
+        line-height: 1.5;
+        padding: 50px;
+        background-color: #545554;
+        color: white;
+    }
+
+    .praktisk {
+        height: 1500px;
+        font-size: 20px;
+        text-align: left;
+        line-height: 1.5;
+        padding: 50px;
+        background-color: #333332;
+        color: white;
+    }
+
+
+    buttons {
+        width: 60vw;
+        height: 10vw;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        top: -40vw;
+        left: 20vw;
+        justify-content: space-between;
+        color: white;
+        opacity: 0.9;
+
+    }
+
+    buttons a {
+        text-decoration: none;
+        color: black;
+        font-family: "Roboto";
+        font-size: 3vw;
+    }
+
+    buttons a:hover {
+        color: #BB0000;
+    }
+
+
+    .button1 {
+        padding: 2vw;
+    }
+
+    .button2 {
+        padding: 2vw;
+    }
+
+    .button3 {
+        padding: 2vw;
+    }
+
+    .splash h1 {
+        font-size: 9vw;
+        margin: 0;
+        position: relative;
+        left: 26vw;
+        top: 16vw;
+    }
+
+
+
+}
+
+
+
+
+
+
+
 
 @media only screen and (min-width: 992px) {
     .logo {
