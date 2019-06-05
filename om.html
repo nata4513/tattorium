@@ -7,10 +7,13 @@
     <title>Forside Realistic tattoo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="om.css">
+
+    <meta name="description" content="Hos Realistic tattoo, arbejder Nis Staack, der specialisere sig for realistiske tatoveringer herunder både portrætter og fanart">
+
 </head>
 
 <body>
-   <header>
+    <header>
 
         <div class="logo"><a href="index.html"><img src="logo_hvid.png" alt="logo"></a></div>
 
@@ -67,24 +70,21 @@
     </header>
 
 
-    <section>
-
+    <nav>
         <div class="splash">
             <h1>OM</h1>
         </div>
-
-        <main class="side">
-            <section class="om">
-                <h2 class="overskrift"></h2>
-                <div class="text"></div>
-            </section>
-        </main>
+    </nav>
 
 
+    <main class="side">
+        <section class="om">
+            <h2 class="overskrift"></h2>
+            <div class="text"></div>
+        </section>
+    </main>
 
 
-
-    </section>
     <footer>
         <div class="column">
             <h2>Kontakt</h2>
@@ -124,10 +124,12 @@
 
         document.addEventListener("DOMContentLoaded", start);
 
+        //vi starter med at hente json
         function start() {
             hentJson();
         }
 
+        //json funktionen henter indholdet fra wp
         async function hentJson() {
             const url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/7?fbclid=IwAR3H5D-3p6fmW3N_SFTSivQBcTqryAyD3YFWUEu3-uPxjxwipwkU2ZVx3Ug";
 
@@ -140,26 +142,11 @@
             visSide();
         }
 
-
+        //her bestemmer vi hvilke indhold der skal ind i h2 og div
         function visSide() {
-            //let dest = document.querySelector(".side");
-            //let temp = document.querySelector("template");
-
-            /*side.forEach(om => {
-                //let klon = temp.cloneNode(true).content;
-
-
-                //dest.appendChild(klon);
-            })*/
             document.querySelector(".side .overskrift").innerHTML = side.title.rendered;
             document.querySelector(".side .text").innerHTML = side.content.rendered;
         }
-
-
-
-
-
-
 
 
 

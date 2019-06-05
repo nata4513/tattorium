@@ -4,9 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forside Realistic tattoo</title>
+    <title>Booking Realistic tattoo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="booking.css">
+
+    <meta name="description" content="Book tid til din næste tatovering her. Hvad enten om det er et tatttoo af dit idon, yndlings superhelt eller et portræt af et familiemedlem">
+
 </head>
 
 <body>
@@ -66,10 +69,11 @@
         </div>
     </header>
 
-
-    <div class="splash">
-        <h1>BOOKING</h1>
-    </div>
+    <nav>
+        <div class="splash">
+            <h1>BOOKING</h1>
+        </div>
+    </nav>
 
     <main class="side">
         <section class="booking">
@@ -120,10 +124,14 @@
 
         document.addEventListener("DOMContentLoaded", start);
 
+
+        //starter med at hente json
         function start() {
             hentJson();
         }
 
+
+        //funktionen hentJson hvor vi henter data fra wp
         async function hentJson() {
             const url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/pages/15?fbclid=IwAR3H5D-3p6fmW3N_SFTSivQBcTqryAyD3YFWUEu3-uPxjxwipwkU2ZVx3Ug";
 
@@ -136,25 +144,11 @@
             visSide();
         }
 
-
+        //her sætter vi det ind i section og ind i h2 og div
         function visSide() {
-            //let dest = document.querySelector(".side");
-            //let temp = document.querySelector("template");
-
-            /*side.forEach(om => {
-                //let klon = temp.cloneNode(true).content;
-
-
-                //dest.appendChild(klon);
-            })*/
             document.querySelector(".side .overskrift").innerHTML = side.title.rendered;
             document.querySelector(".side .text").innerHTML = side.content.rendered;
         }
-
-
-
-
-
 
 
 
