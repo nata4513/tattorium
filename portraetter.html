@@ -77,6 +77,13 @@
     </nav>
 
     <section>
+        <div id="popup">
+            <div id="luk">
+                <button>x</button>
+            </div>
+            <div id="indhold"></div>
+        </div>
+
         <main class="portrait"> </main>
         <template class="por">
             <article>
@@ -152,7 +159,7 @@
 
         function visPortrait() {
             let dest = document.querySelector(".portrait");
-            let temp = document.querySelector("template");
+            let temp = document.querySelector(".por");
             console.log(temp);
 
             portrait.forEach(por => {
@@ -163,8 +170,29 @@
                 //Tilføjer klonen til variablen dest (sectionen)
                 dest.appendChild(klon);
 
+                dest.lastElementChild.addEventListener("click", () => {
+                    visSingle(por.billede.guid);
+                });
+
+                function visSingle(billede) {
+                    console.log("hej");
+                    let img_por = document.createElement("img");
+                    img_por.src = billede;
+                    document.querySelector("#popup #indhold").innerHTML = "";
+
+                    document.querySelector("#popup #indhold").appendChild(img_por);
+
+                    document.querySelector("#popup").style.display = "block";
+                    document.querySelector("#popup #luk").addEventListener("click", close);
+                }
+
+                function close() {
+                    document.querySelector("#popup").style.display = "none";
+                }
             })
+
         }
+
 
 
         function openNav() {

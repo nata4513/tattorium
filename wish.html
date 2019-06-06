@@ -80,13 +80,24 @@
     </nav>
 
     <section>
+        <div id="popup">
+            <div id="luk">
+                <button>x</button>
+            </div>
+            <div id="indhold"></div>
+        </div>
 
         <main class="wishlist"> </main>
+        <!--Tom main der skal hente indholdet fra database-->
         <template class="wish">
+            <!--Template tagget, der gør at alt dataen har samme struktur-->
             <article>
                 <img>
+                <!--Billede der skal fyldes med indhold og klones-->
                 <h2></h2>
+                <!--Titel der skal fyldes med indhold og klones-->
                 <p></p>
+                <!--Pris der skal fyldes med indhold og klones-->
             </article>
         </template>
 
@@ -124,34 +135,32 @@
     </footer>
 
     <script>
-        //Tomt array - her skal artiklerne til de aktuelle udstillinger hentes med hjælp af json fra wordpress
+        //Tomt array - her indholdet hentes med hjælp af json fra wordpress
         let wishlist = [];
 
-        //Når dommet er loadet, kaldt funktionen start
+        //Når dommen er loadet, kaldes funktionen start
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
             hentJson();
-            //Henter og viser den dynamiske datan fra WP
+            //Henter og viser den dynamiske data fra WP
         }
 
+        //hent JSON fil i asynkron funktion
         async function hentJson() {
             const url = "http://natashahaagensen.dk/kea/tattorium/wordpress/wp-json/wp/v2/wish";
 
             //henter data filen
             const myJson = await fetch(url);
 
-
-            //den hentede json filen skal tolkes som json
-            // Det tomme array bliver fyldt med indhold
-
+            //den hentede json fil skal tolkes som json
             wishlist = await myJson.json();
 
             console.log(wishlist);
 
-            //Kald funktionen som viser data i DOM
+            //kalder funktionen som viser data
             visWishlist();
-        } //hent JSON fil i asynkron funktion
+        }
 
         function visWishlist() {
             let dest = document.querySelector(".wishlist");
@@ -161,15 +170,47 @@
             wishlist.forEach(wish => {
                 //Kloning af template-taggets indhold
                 let klon = temp.cloneNode(true).content;
-
                 klon.querySelector("img").src = wish.billeder.guid;
                 klon.querySelector("h2").innerHTML = wish.titel;
                 klon.querySelector("p").innerHTML = wish.pris;
-                //Tilføjer klonen til variablen dest (sectionen)
+                //Tilføjer klonen til variablen dest
                 dest.appendChild(klon);
 
+                dest.lastElementChild.addEventListener("click", () => {
+                    visSingle(wish.billeder.guid, wish.titel, wish.pris);
+                });
+
+                function visSingle(billeder, titel, pris) {
+                    console.log("hej");
+                    let img_wish = document.createElement("img");
+                    img_wish.src = billeder;
+
+                    let titel_wish = document.createElement("titel");
+                    titel_wish.innerHTML = titel;
+
+                    let pris_wish = document.createElement("pris");
+                    pris_wish.innerHTML = pris;
+
+
+                    document.querySelector("#popup #indhold").innerHTML = "";
+
+                    document.querySelector("#popup #indhold").appendChild(img_wish);
+                    document.querySelector("#popup #indhold").appendChild(titel_wish);
+                    document.querySelector("#popup #indhold").appendChild(pris_wish);
+
+                    document.querySelector("#popup").style.display = "block";
+                    document.querySelector("#popup #luk").addEventListener("click", close);
+                }
+
+                function close() {
+                    document.querySelector("#popup").style.display = "none";
+                }
             })
+
         }
+
+
+
 
 
         function openNav() {
@@ -185,4 +226,4 @@
 
 </body>
 
-    </html>
+</html>

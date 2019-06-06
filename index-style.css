@@ -104,14 +104,21 @@ p {
 
 .sidenav {
     height: 100%;
+    /*Højden*/
     width: 0;
+    /*ingen bredde her, men ændres med JavaScript*/
     position: fixed;
+    /*Menuen skal blive samme sted*/
     z-index: 1;
+    /*Skal vises frem/foran for alt andet*/
     top: 0;
+    /*bliver i toppen*/
     right: 0;
+    /*bliver i højre side*/
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
+    /*slide hastighed*/
     padding-top: 65px;
     font-family: roboto;
 }

@@ -24,8 +24,10 @@
         </div>
 
         <div id="mobilemenu">
+            <!--Hele containteren for burgermenuen til mobile-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <!--Lukkeknappen, der vises når menuen er der og som skal lukke menuen når der trykkes på den-->
                 <hr>
                 <a id="hoved" href="tatoveringer.html">TATOVERINGER</a>
                 <hr>
@@ -48,6 +50,7 @@
             </div>
 
             <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <!--Laver musen om til en cursor og gør, at når der trykkes på de tre streger, der åbner menuen-->
 
         </div>
 
@@ -191,13 +194,16 @@
             getJson2();
         }
 
+
+        //Her sættes bredden til 250px, når menuen skal vises
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
         }
-
+        //Her sættes bredden til 0, når menuen ikke skal vises
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
     </script>
 </body>
 

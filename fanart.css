@@ -266,6 +266,7 @@ li.dropdown {
 
 img {
     width: 100%;
+    height: 100%;
 }
 
 
@@ -283,12 +284,13 @@ img {
 }
 
 
-#popup {
-    top: 0;
+/*#popup {
+    top: 0vw;
     width: 100vw;
     height: 100vh;
     position: fixed;
     background-color: hsla(0, 15%, 48%, 0.5);
+    z-index: 10;
 }
 
 #indhold {
@@ -307,7 +309,7 @@ img {
 #luk button {
     font-size: 2rem;
     padding 1rem 2rem;
-}
+}*/
 
 /****************FOOTER************/
 footer {

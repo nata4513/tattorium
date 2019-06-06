@@ -252,6 +252,7 @@ li.dropdown {
 }
 
 .wishlist {
+    /*Her styles det data der bliver hentet*/
     height: 7000px;
     font-size: 20px;
     text-align: center;

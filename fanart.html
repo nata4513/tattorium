@@ -70,12 +70,6 @@
     </header>
 
 
-    <!--    <div id="popup">
-        <div id="luk">
-            <button>x</button>
-        </div>
-        <div id="indhold"></div>
-    </div>-->
     <nav>
         <div class="splash">
             <h1>FAN-ART</h1>
@@ -84,6 +78,14 @@
     </nav>
 
     <section>
+
+        <div id="popup">
+            <div id="luk">
+                <button>x</button>
+            </div>
+            <div id="indhold"></div>
+        </div>
+
         <main class="fanart"> </main>
         <template class="fan">
             <article>
@@ -170,9 +172,30 @@
                 //Tilføjer klonen til variablen dest (sectionen)
                 dest.appendChild(klon);
 
+                dest.lastElementChild.addEventListener("click", () => {
+                    visSingle(fan.billede.guid);
+                });
+
+                function visSingle(billede) {
+                    console.log("singlebillede");
+                    let img_fan = document.createElement("img");
+                    img_fan.src = billede;
+                    document.querySelector("#popup #indhold").innerHTML = "";
+
+                    document.querySelector("#popup #indhold").appendChild(img_fan);
+
+                    document.querySelector("#popup").style.display = "block";
+                    document.querySelector("#popup #luk").addEventListener("click", close);
+                }
+
+                function close() {
+                    document.querySelector("#popup").style.display = "none";
+                }
             })
 
         }
+
+
 
 
 
