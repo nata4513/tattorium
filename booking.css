@@ -251,33 +251,22 @@ li.dropdown {
     color: white;
 }
 
-button {
+.button1 {
     background-color: white;
-    border: none;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
     opacity: 0.7;
     display: grid;
-    grid-template-columns: 1fr;
     font-family: roboto;
-}
-
-button a {
-    text-decoration: none;
     color: black;
-    font-family: "Roboto";
     padding: 15px 30px;
-}
-
-.button1 {
     position: relative;
     top: 3vw;
-    margin: auto;
-    font-family: roboto;
+    width: 40vw;
 }
 
-button a:hover {
+.button1:hover {
     color: #BB0000;
 }
 
@@ -328,7 +317,6 @@ footer p {
 }
 
 
-
 /*******************MEDIAQUARIES********************/
 
 @media only screen and (min-width: 770px) {
@@ -366,7 +354,6 @@ footer p {
 
     .face {
         position: relative;
-        top: 0vw;
         left: 3.3vw;
         width: 5vw;
         height: 5vw;
@@ -388,6 +375,11 @@ footer p {
         padding: 50px;
         background-color: #545554;
         color: white;
+    }
+
+    .button1 {
+        top: 3vw;
+        width: 30vw;
     }
 
 
@@ -460,8 +452,8 @@ footer p {
     }
 
     .button1 {
-        position: relative;
-        top: 1vw;
+        left: 35vw;
+        width: 20vw;
     }
 
 

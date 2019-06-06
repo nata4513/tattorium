@@ -168,7 +168,8 @@ ul {
 }
 
 
-#menud {
+#menud,
+.menud {
     float: right;
 }
 
@@ -180,17 +181,12 @@ li a,
     text-decoration: none;
 }
 
+.menud a:hover,
 #menud a:hover,
 .dropdown:hover .dropbtn {
     color: #BB0000;
 
 }
-
-#menud a:hover,
-.dropdown:hover .dropbtn {
-    color: #BB0000;
-}
-
 
 #menud.dropdown {
     display: inline-block;

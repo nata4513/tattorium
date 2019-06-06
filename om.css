@@ -151,6 +151,7 @@ hr {
     opacity: 0.1;
 }
 
+
 /*******************MENU DESKTOP******************/
 ul {
     list-style-type: none;
@@ -358,12 +359,12 @@ footer p {
         top: 16vw;
     }
 
+    .om {
+        height: 700px;
+
+    }
 
 }
-
-
-
-
 
 
 

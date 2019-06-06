@@ -260,7 +260,7 @@ li.dropdown {
     color: white;
 }
 
-buttons {
+.buttons {
     width: 30vw;
     height: 50vw;
     display: flex;
@@ -269,32 +269,25 @@ buttons {
     top: -80vw;
     left: 32vw;
     justify-content: space-between;
-    color: white;
-    opacity: 0.9;
+    text-align: center;
 }
 
-buttons a {
+.button1,
+.button2,
+.button3 {
     text-decoration: none;
     color: black;
     font-family: "Roboto";
     font-size: 4vw;
+    background-color: white;
+    opacity: 0.9;
+    padding: 3vw;
 }
 
-buttons a:hover {
+.button1:hover,
+.button2:hover,
+.button3:hover {
     color: #BB0000;
-}
-
-
-.button1 {
-    padding: 3vw;
-}
-
-.button2 {
-    padding: 3vw;
-}
-
-.button3 {
-    padding: 3vw;
 }
 
 /****************FOOTER************/
@@ -415,43 +408,29 @@ footer p {
     }
 
 
-    buttons {
-        width: 60vw;
-        height: 10vw;
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        top: -40vw;
-        left: 20vw;
+    .buttons {
+        display: inline;
+        flex-direction: column;
         justify-content: space-between;
-        color: white;
-        opacity: 0.9;
-
+        text-align: center;
+        position: relative;
+        top: -35vw;
+        left: 16vw;
     }
 
-    buttons a {
+    .button1,
+    .button2,
+    .button3 {
         text-decoration: none;
         color: black;
         font-family: "Roboto";
-        font-size: 3vw;
+        font-size: 2.5vw;
+        background-color: white;
+        opacity: 0.9;
+        padding: 3vw;
+        margin: 2vw;
     }
 
-    buttons a:hover {
-        color: #BB0000;
-    }
-
-
-    .button1 {
-        padding: 2vw;
-    }
-
-    .button2 {
-        padding: 2vw;
-    }
-
-    .button3 {
-        padding: 2vw;
-    }
 
     .splash h1 {
         font-size: 9vw;
@@ -464,11 +443,6 @@ footer p {
 
 
 }
-
-
-
-
-
 
 
 
@@ -547,42 +521,27 @@ footer p {
     }
 
 
-    buttons {
-        width: 50vw;
-        height: 6vw;
-        display: flex;
+    .buttons {
+        display: inline;
         flex-direction: row;
         position: relative;
-        top: -25vw;
-        left: 25vw;
+        top: -20vw;
+        left: 21vw;
         justify-content: space-between;
-        color: white;
-        opacity: 0.9;
-
+        text-align: center;
     }
 
-    buttons a {
+
+    .button1,
+    .button2,
+    .button3 {
         text-decoration: none;
         color: black;
         font-family: "Roboto";
         font-size: 2vw;
-    }
-
-    buttons a:hover {
-        color: #BB0000;
-    }
-
-
-    .button1 {
-        padding: 2vw;
-    }
-
-    .button2 {
-        padding: 2vw;
-    }
-
-    .button3 {
-        padding: 2vw;
+        background-color: white;
+        opacity: 0.9;
+        padding: 2.5vw;
     }
 
     .splash h1 {
