@@ -283,7 +283,25 @@ img {
     }
 }
 
+#popup {
+    display: none;
+}
 
+#indhold {
+    display: none;
+}
+
+#luk {
+    display: none;
+}
+
+#luk button {
+    display: none;
+}
+
+#luk button a:hover {
+    color: #BB0000;
+}
 
 
 /****************FOOTER************/
@@ -548,5 +566,44 @@ footer p {
         top: 10vw;
         padding: 5vw;
         text-align: center;
+    }
+
+    #popup {
+        top: 0;
+        width: 100%;
+        height: 700px;
+        position: fixed;
+        background-color: black;
+        display: none;
+        text-align: center;
+        z-index: 5;
+    }
+
+    #indhold {
+        display: block;
+        background-color: white;
+        width: 45vw;
+        margin: 4rem auto;
+    }
+
+    #luk {
+        display: block;
+        position: fixed;
+        right: 2rem;
+        color: white;
+        opacity: 0.9;
+    }
+
+    #luk button {
+        display: block;
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        color: black;
+        font-family: "Roboto";
+        margin-top: 1rem;
+    }
+
+    #luk button a:hover {
+        color: #BB0000;
     }
 }

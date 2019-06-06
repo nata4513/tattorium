@@ -3,8 +3,7 @@
 }
 
 
-body,
-html {
+body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -284,32 +283,25 @@ img {
 }
 
 
-/*#popup {
-    top: 0vw;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    background-color: hsla(0, 15%, 48%, 0.5);
-    z-index: 10;
+#popup {
+    display: none;
 }
 
 #indhold {
-    min-height: 50vh;
-    background-color: white;
-    width: 70vw;
-    margin: 4rem auto;
+    display: none;
 }
 
 #luk {
-    position: fixed;
-    right: 2rem;
-    padding-right: 2rem;
+    display: none;
 }
 
 #luk button {
-    font-size: 2rem;
-    padding 1rem 2rem;
-}*/
+    display: none;
+}
+
+#luk button a:hover {
+    color: #BB0000;
+}
 
 /****************FOOTER************/
 footer {
@@ -421,12 +413,7 @@ footer p {
 
     }
 
-
 }
-
-
-
-
 
 
 
@@ -565,6 +552,45 @@ footer p {
         top: 10vw;
         padding: 5vw;
         text-align: center;
+    }
+
+    #popup {
+        top: 0;
+        width: 100%;
+        height: 700px;
+        position: fixed;
+        background-color: black;
+        display: none;
+        text-align: center;
+        z-index: 5;
+    }
+
+    #indhold {
+        display: block;
+        background-color: white;
+        width: 45vw;
+        margin: 4rem auto;
+    }
+
+    #luk {
+        display: block;
+        position: fixed;
+        right: 2rem;
+        color: white;
+        opacity: 0.9;
+    }
+
+    #luk button {
+        display: block;
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        color: black;
+        font-family: "Roboto";
+        margin-top: 1rem;
+    }
+
+    #luk button a:hover {
+        color: #BB0000;
     }
 
 }
