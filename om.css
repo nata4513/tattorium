@@ -16,8 +16,7 @@ img {
     width: 100%;
 }
 
-h1,
-    {
+h1 {
     font-family: anton;
     font-size: 10vw;
 }
@@ -346,7 +345,6 @@ footer p {
 
     .face {
         position: relative;
-        top: vw;
         left: 3.3vw;
         width: 5vw;
         height: 5vw;
